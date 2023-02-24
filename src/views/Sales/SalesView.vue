@@ -1,8 +1,9 @@
 <template>
-  <h1>{{ t("nav.logout") }}</h1>
+  <section>
+    <search-form></search-form>
+  </section>
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+import SearchForm from "@/components/sales/SearchForm.vue";
 </script>

@@ -32,7 +32,12 @@ const store = useAuthStore();
 
 <style scoped>
 .ui.menu .item {
-  color: rgb(30, 83, 163);
+  color: #1e53a3ff;
+}
+.ui.menu .item:hover {
+  color: #1e53a3ff;
+  font-weight: bold;
+  background-color: white;
 }
 .ui.menu .logo {
   height: 30px;
