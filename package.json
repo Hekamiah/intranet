@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "core-js": "^3.8.3",
     "pinia": "^2.0.32",
     "semantic-ui-css": "github:Semantic-Org/Semantic-UI-CSS",

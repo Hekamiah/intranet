@@ -16,7 +16,7 @@
         </div>
         <div class="right menu">
           <a class="ui item">{{ store.displayName }}</a>
-          <a class="ui item">{{ t("nav.logout") }}</a>
+          <a class="ui item" @click="logout">{{ t("nav.logout") }}</a>
         </div>
       </div>
     </div>
@@ -24,10 +24,20 @@
 </template>
 
 <script lang="ts" setup>
+import { useIntranetStore } from "@/store/intranet";
 import { useAuthStore } from "@/store/auth";
+import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-const store = useAuthStore();
+const store = useIntranetStore();
+
+const router = useRouter();
+const authStore = useAuthStore();
+
+function logout() {
+  authStore.makeLogout();
+  router.push({ path: "/login" });
+}
 </script>
 
 <style scoped>

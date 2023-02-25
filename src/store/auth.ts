@@ -1,8 +1,15 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { useStorage } from "@vueuse/core";
 
 export const useAuthStore = defineStore("auth", () => {
-  const displayName = ref("Tiago Santos");
+  const isLoggedIn = useStorage("auth", false);
+  function makeLogin() {
+    isLoggedIn.value = true;
+  }
 
-  return { displayName };
+  function makeLogout() {
+    isLoggedIn.value = false;
+  }
+
+  return { isLoggedIn, makeLogin, makeLogout };
 });

@@ -1,5 +1,5 @@
 <template>
-  <the-navbar></the-navbar>
+  <the-navbar v-if="authStore.isLoggedIn"></the-navbar>
   <div class="ui container main-container">
     <router-view></router-view>
   </div>
@@ -7,6 +7,9 @@
 
 <script lang="ts" setup>
 import TheNavbar from "@/components/navigation/TheNavbar.vue";
+import { useAuthStore } from "@/store/auth";
+
+const authStore = useAuthStore();
 </script>
 
 <style scoped>

@@ -2,6 +2,10 @@ export default {
   nav: {
     logout: "Logout",
   },
+  table: {
+    record: "record",
+    records: "records",
+  },
   sales: {
     link: "Search clients",
     searchForm: {
@@ -11,6 +15,14 @@ export default {
       birthDate: "Birth date",
       fiscalNUmber: "Fiscal number",
       search: "Search",
+    },
+    table: {
+      fields: {
+        firstName: "Name",
+        lastName: "Surname",
+        birthDate: "Date of birth",
+        store: "Store",
+      },
     },
   },
 };

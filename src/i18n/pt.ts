@@ -2,6 +2,10 @@ export default {
   nav: {
     logout: "Sair",
   },
+  table: {
+    record: "registo",
+    records: "registos",
+  },
   sales: {
     link: "Pesquisa clientes",
     searchForm: {
@@ -11,6 +15,14 @@ export default {
       birthDate: "Data de nascimento",
       fiscalNUmber: "Número de contribuinte",
       search: "Pesquisar",
+    },
+    table: {
+      fields: {
+        firstName: "Nome",
+        lastName: "Apelido",
+        birthDate: "Data de nascimento",
+        store: "Loja",
+      },
     },
   },
 };
