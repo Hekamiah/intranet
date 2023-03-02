@@ -10,7 +10,7 @@
           />
         </a>
         <div class="left menu">
-          <RouterLink class="ui item" to="Sales">{{
+          <RouterLink class="ui item" to="Sales" v-if="links.sales">{{
             t("sales.link")
           }}</RouterLink>
         </div>
@@ -28,11 +28,16 @@ import { useIntranetStore } from "@/store/intranet";
 import { useAuthStore } from "@/store/auth";
 import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { ref } from "vue";
 const { t } = useI18n();
 const store = useIntranetStore();
 
 const router = useRouter();
 const authStore = useAuthStore();
+
+const links = ref({
+  sales: false,
+});
 
 function logout() {
   authStore.makeLogout();

@@ -1,6 +1,8 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import "jquery/src/jquery";
 import "semantic-ui-css/semantic.css";
+import "semantic-ui-css/semantic.js";
 import App from "./App.vue";
 import router from "@/router";
 import i18n from "@/i18n/index";

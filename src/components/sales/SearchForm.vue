@@ -24,14 +24,17 @@
     :text="t('sales.searchForm.search')"
     have-icon
     icon="search"
+    @click="searchCustomer"
   ></base-button>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
-import BaseButton from "@/components/ui/BaseButton.vue";
+import BaseButton from "@/components/BaseButton.vue";
 const { t } = useI18n();
+
+const emit = defineEmits(["seacrhCustomer"]);
 
 const customerData = ref({
   customerFirstName: "",
@@ -39,4 +42,18 @@ const customerData = ref({
   customerBirthDate: "",
   customerFiscalNumber: "",
 });
+
+function parseDate(date: string) {
+  return date.substring(0, 4) + date.substring(5, 7) + date.substring(8, 10);
+}
+
+function searchCustomer() {
+  const custData = {
+    firstName: customerData.value.customerFirstName,
+    lastName: customerData.value.customerLasttName,
+    date: parseDate(customerData.value.customerBirthDate),
+    fiscalNumber: customerData.value.customerFiscalNumber,
+  };
+  emit("seacrhCustomer", custData);
+}
 </script>

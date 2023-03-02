@@ -9,16 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        v-for="row in data"
-        :key="row"
-        data-toggle="modal"
-        :data-target="'#' + modal"
-      >
-        <td v-for="item in row" :key="item">{{ item }}</td>
+      <tr v-for="row in data" :key="row" @click="handleItemClicked(row)">
+        <td v-for="field in fields" :key="field">{{ row[field] }}</td>
       </tr>
     </tbody>
-    <tfoot>
+    <tfoot v-if="footer">
       <tr>
         <th :colspan="columns">
           {{ rows }}
@@ -49,7 +44,15 @@ const props = defineProps({
     required: false,
     default: "",
   },
+  footer: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
 });
+
+const emit = defineEmits(["itemClicked"]);
+
 const rows = computed(() => {
   if (props.data.length > 1) {
     return props.data.length + " " + t("table.records");
@@ -60,4 +63,8 @@ const rows = computed(() => {
 const columns = computed(() => {
   return props.fields.length;
 });
+
+function handleItemClicked(item: never) {
+  emit("itemClicked", item);
+}
 </script>
